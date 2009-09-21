@@ -6,36 +6,30 @@ set :git_enable_submodules, 1
 set :deploy_via,       :remote_cache    
 set :normalize_asset_timestamps, false
 
-role :web, "ec2-174-129-180-22.compute-1.amazonaws.com"
-role :app, "ec2-174-129-180-22.compute-1.amazonaws.com"
-# role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-# role :db,  "your slave db-server here"
+role :web, "ec2-67-202-63-60.compute-1.amazonaws.com"
+role :app, "ec2-67-202-63-60.compute-1.amazonaws.com"
 
 before "deploy:setup", "deploy:install_git"
-
 after "deploy", "deploy:symlink_srv"
 
 namespace :deploy do
+  desc "Install latest git"
   task :install_git do
     sudo "apt-get update -qq"
     sudo "apt-get install git-core -y"
   end
   
   %w[stop start restart].each do |name|
-    task(name) do
-    end
+    task(name) {}
   end
   
+  desc "Symlink chef into its default location"
   task :symlink_srv do
     run "ln -sfv #{current_path} /srv/chef"
   end
 end
 
 namespace :chef do
-  task :web_json, :roles => :web do
-    run "whoami"
-  end
-  
   task :install_chef do
     sudo "/usr/bin/gem1.8 install chef ohai rake --source http://gems.opscode.com --source http://gems.rubyforge.org --no-ri --no-rdoc"
   end
@@ -70,6 +64,7 @@ EOC
     solo
   end
   
+  desc "Run chef-solo"
   task :solo do
     sudo "chef-solo -j #{current_path}/config/web.json -c #{current_path}/config/solo.rb"
   end
