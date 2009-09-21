@@ -1,14 +1,21 @@
 set :application, "chef"
 set :repository,  "git://github.com/rsanheim/chef-repo.git"
 
-set :scm, :subversion
+set :scm, :git
 
 role :web, "ec2-174-129-180-22.compute-1.amazonaws.com"
 role :app, "ec2-174-129-180-22.compute-1.amazonaws.com"
 # role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
 # role :db,  "your slave db-server here"
 
+before "deploy:setup", "deploy:install_git"
+
 namespace :deploy do
+  task :install_git do
+    sudo "apt-get update -qq"
+    sudo "apt-get install git-core -y"
+  end
+  
   task :start do
   end
   task :stop do
@@ -54,7 +61,11 @@ EOC
     install_ruby
     install_rubygems
     install_chef
-    # solo
+    solo
+  end
+  
+  task :solo do
+    sudo "chef-solo -j /root/chef/node.json -c #{current_path}/config/solo.rb"
   end
   
 end
