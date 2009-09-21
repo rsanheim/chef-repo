@@ -1,5 +1,5 @@
-name "web-app-server"
-recipes "apache2", "passenger", "rails"
+name "web"
+recipes "passenger_apache2"
 
 # web_app "some_rails_app" do
 #   docroot "/srv/some-app/current/public"

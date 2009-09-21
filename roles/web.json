@@ -1,5 +1,5 @@
 {
-  "name": "web-app-server",
+  "name": "web",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "default_attributes": {
@@ -7,9 +7,7 @@
   },
   "description": "",
   "recipes": [
-    "apache2",
-    "passenger",
-    "rails"
+    "passenger_apache2"
   ],
   "override_attributes": {
 
