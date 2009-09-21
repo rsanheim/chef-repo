@@ -3,7 +3,7 @@ set :repository,  "git://github.com/rsanheim/chef-repo.git"
 
 set :scm, :git
 set :git_enable_submodules, 1
-set :deploy_via,       :remote_cache    
+set :deploy_via, :remote_cache    
 set :normalize_asset_timestamps, false
 
 role :web, "ec2-67-202-63-60.compute-1.amazonaws.com"
@@ -44,7 +44,7 @@ namespace :chef do
     rubygems = "rubygems-1.3.5"
     run <<-EOC
 if [ ! -e /usr/bin/gem ]; then
-  wget http://rubyforge.org/frs/download.php/60718/#{rubygems}.tgz
+  wget -q http://rubyforge.org/frs/download.php/60718/#{rubygems}.tgz
   && tar xzf #{rubygems}.tgz
   && cd #{rubygems}
   && /usr/bin/ruby setup.rb
