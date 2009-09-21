@@ -10,6 +10,8 @@
     "passenger_apache2"
   ],
   "override_attributes": {
-
+    "passenger": {
+      "version": "2.2.5"
+    }
   }
 }
