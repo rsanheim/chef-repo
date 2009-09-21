@@ -1,5 +1,4 @@
-This is a blank repository you can use as a starting point for your
-local chef configuration. For full details on the parts aside from 
-information contained in the README files, see the Chef wiki document
+Notes:
 
-http://wiki.opscode.com/display/chef/Chef+Repository
+* just set things up in /srv/chef (via symlink or otherwise) -- it makes life easier
+* several paths missing from solo.rb.example that are needed for things to work out of the box
