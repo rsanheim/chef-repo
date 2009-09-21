@@ -21,6 +21,11 @@ namespace :deploy do
     sudo "apt-get install git-core -y"
   end
   
+  %w[stop start restart].each do |name|
+    task(name) do
+    end
+  end
+  
   task :symlink_srv do
     run "ln -sfv #{current_path} /srv/chef"
   end
