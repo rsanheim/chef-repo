@@ -7,7 +7,7 @@
   },
   "description": "Base setup for any node",
   "recipes": [
-    "git-core"
+    "git"
   ],
   "override_attributes": {
 

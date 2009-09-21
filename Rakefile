@@ -34,4 +34,5 @@ end
 
 load 'chef/tasks/chef_repo.rake'
 
+task(:default).clear
 task :default => [:metadata, :roles]
