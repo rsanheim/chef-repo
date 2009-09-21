@@ -2,7 +2,7 @@
 # Chef Solo Config File
 #
 
-log_level          :debug
+log_level          :info
 log_location       STDOUT
 
 cookbook_path      [ "/srv/chef/site-cookbooks", "/srv/chef/cookbooks" ]

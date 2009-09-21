@@ -2,3 +2,4 @@ Notes:
 
 * just set things up in /srv/chef (via symlink or otherwise) -- it makes life easier
 * several paths missing from solo.rb.example that are needed for things to work out of the box
+* main git recipe installs gitk and other stuff (why??) - using our own recipe in site-cookbooks
