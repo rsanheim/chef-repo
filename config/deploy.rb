@@ -13,17 +13,16 @@ role :app, "ec2-174-129-180-22.compute-1.amazonaws.com"
 
 before "deploy:setup", "deploy:install_git"
 
+after "deploy", "deploy:symlink_srv"
+
 namespace :deploy do
   task :install_git do
     sudo "apt-get update -qq"
     sudo "apt-get install git-core -y"
   end
   
-  task :start do
-  end
-  task :stop do
-  end
-  task :restart do
+  task :symlink_srv do
+    run "ln -sfv #{current_path} /srv/chef"
   end
 end
 
