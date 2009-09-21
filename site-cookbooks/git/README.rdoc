@@ -1,0 +1,8 @@
+= DESCRIPTION: Install git (any nothing else - no gitk, etc.)
+
+= REQUIREMENTS:
+
+= ATTRIBUTES: 
+
+= USAGE:
+
