@@ -2,6 +2,9 @@ set :application, "chef"
 set :repository,  "git://github.com/rsanheim/chef-repo.git"
 
 set :scm, :git
+set :git_enable_submodules, 1
+set :deploy_via,       :remote_cache    
+set :normalize_asset_timestamps, false
 
 role :web, "ec2-174-129-180-22.compute-1.amazonaws.com"
 role :app, "ec2-174-129-180-22.compute-1.amazonaws.com"
@@ -26,7 +29,6 @@ end
 
 namespace :chef do
   task :web_json, :roles => :web do
-    puts 'hi'
     run "whoami"
   end
   
@@ -65,7 +67,7 @@ EOC
   end
   
   task :solo do
-    sudo "chef-solo -j /root/chef/node.json -c #{current_path}/config/solo.rb"
+    sudo "chef-solo -j #{current_path}/config/web.json -c #{current_path}/config/solo.rb"
   end
   
 end
