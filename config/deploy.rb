@@ -1,5 +1,5 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, "chef"
+set :repository,  "git://github.com/rsanheim/chef-repo.git"
 
 set :scm, :subversion
 
