@@ -1,1 +1,2 @@
-include_recipe "git-core"
+name "base"
+recipes "git-core"
