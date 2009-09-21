@@ -33,3 +33,5 @@ elsif File.directory?(File.join(TOPDIR, ".git"))
 end
 
 load 'chef/tasks/chef_repo.rake'
+
+task :default => [:metadata, :roles]

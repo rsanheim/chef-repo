@@ -5,7 +5,7 @@
   "default_attributes": {
 
   },
-  "description": "",
+  "description": "Base setup for any node",
   "recipes": [
     "git-core"
   ],
