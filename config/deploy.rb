@@ -6,8 +6,8 @@ set :git_enable_submodules, 1
 set :deploy_via, :remote_cache    
 set :normalize_asset_timestamps, false
 
-role :web, "ec2-67-202-63-60.compute-1.amazonaws.com"
-role :app, "ec2-67-202-63-60.compute-1.amazonaws.com"
+role :web, "ec2-174-129-139-199.compute-1.amazonaws.com"
+role :app, "ec2-174-129-139-199.compute-1.amazonaws.com"
 
 before "deploy:setup", "deploy:install_git"
 after "deploy", "deploy:symlink_srv"
@@ -20,6 +20,7 @@ namespace :deploy do
   end
   
   %w[stop start restart].each do |name|
+    desc "#{name} is a no-op"
     task(name) {}
   end
   
