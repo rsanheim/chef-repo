@@ -1,19 +1,20 @@
 set :application, "chef"
 set :repository,  "git://github.com/rsanheim/chef-repo.git"
-
 set :scm, :git
 set :git_enable_submodules, 1
 set :deploy_via, :remote_cache    
 set :normalize_asset_timestamps, false
+ssh_options[:keys] = [File.join(ENV["HOME"], ".sumo", "keypair.pem")] 
 
-role :web, "ec2-174-129-139-199.compute-1.amazonaws.com"
-role :app, "ec2-174-129-139-199.compute-1.amazonaws.com"
+instance = "EC2-HERE-DOG"
+role :web, instance
+role :app, instance
 
 before "deploy:setup", "deploy:install_git"
 after "deploy", "deploy:symlink_srv"
 
 namespace :deploy do
-  desc "Install latest git"
+  desc "Install latest Git, so we can deploy"
   task :install_git do
     sudo "apt-get update -qq"
     sudo "apt-get install git-core -y"
@@ -31,6 +32,7 @@ namespace :deploy do
 end
 
 namespace :chef do
+  desc "Install Chef from gems"
   task :install_chef do
     sudo "/usr/bin/gem1.8 install chef ohai rake --source http://gems.opscode.com --source http://gems.rubyforge.org --no-ri --no-rdoc"
   end
@@ -40,6 +42,7 @@ namespace :chef do
     sudo "apt-get install ruby ruby1.8-dev libopenssl-ruby1.8 rdoc ri irb build-essential wget ssl-cert -y"
   end
 
+  desc "Install Rubygems from source, to avoid Ubuntu badness"
   task :install_rubygems do
     set :user, "root"
     rubygems = "rubygems-1.3.5"
@@ -56,6 +59,7 @@ fi
 EOC
   end
   
+  desc "0 to Fully Chefized with one command"
   task :bootstrap do
     top.deploy.setup
     top.deploy.default
