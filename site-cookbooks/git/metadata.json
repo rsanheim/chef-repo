@@ -1,0 +1,47 @@
+{
+  "providing": {
+    "git::server": [
+
+    ],
+    "git": [
+
+    ]
+  },
+  "dependencies": {
+    "runit": [
+
+    ],
+    "apache2": [
+
+    ]
+  },
+  "long_description": "= DESCRIPTION: Install git (any nothing else - no gitk, etc.)\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\n= USAGE:\n\n",
+  "platforms": {
+
+  },
+  "replacing": {
+
+  },
+  "description": "Installs/Configures git",
+  "maintainer": "Relevance",
+  "name": "git",
+  "recipes": {
+    "git::server": "Sets up a runit_service for git daemon",
+    "git": ""
+  },
+  "recommendations": {
+
+  },
+  "maintainer_email": "rob@thinkrelevance.com",
+  "version": "0.1.0",
+  "suggestions": {
+
+  },
+  "attributes": {
+
+  },
+  "conflicting": {
+
+  },
+  "license": "Apache 2.0"
+}
