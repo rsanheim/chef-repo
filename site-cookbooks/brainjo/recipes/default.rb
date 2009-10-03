@@ -1,4 +1,4 @@
-web_app "myproj" do
+web_app "brainjo" do
   docroot "/srv/myproj/public"
   server_name "myproj.#{node[:domain]}"
   server_aliases [ "myproj", node[:hostname] ]
