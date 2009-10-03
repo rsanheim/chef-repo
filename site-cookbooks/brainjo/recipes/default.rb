@@ -1,7 +1,7 @@
 web_app "brainjo" do
-  docroot "/srv/myproj/public"
-  server_name "myproj.#{node[:domain]}"
-  server_aliases [ "myproj", node[:hostname] ]
+  docroot "/srv/brainjo/public"
+  server_name "brainjo.#{node[:domain]}"
+  server_aliases [ "brainjo", node[:hostname] ]
   rails_env "production"
   template "brainjo.conf.erb"
 end
