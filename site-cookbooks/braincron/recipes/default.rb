@@ -1,4 +1,4 @@
-directory "/data" do
+directory "#{app_root}" do
   owner node[:user]
   mode 0755
 end
@@ -6,10 +6,10 @@ end
 node[:apps].each do |app|
 
   cap_directories = [
-    "/srv/#{app}/shared",
-    "/srv/#{app}/shared/config",
-    "/srv/#{app}/shared/system",
-    "/srv/#{app}/releases" 
+    "#{app_root}/#{app}/shared",
+    "#{app_root}/#{app}/shared/config",
+    "#{app_root}/#{app}/shared/system",
+    "#{app_root}/#{app}/releases" 
   ]
 
   cap_directories.each do |dir|
@@ -23,7 +23,7 @@ node[:apps].each do |app|
 end
 
 web_app "braincron" do
-  docroot "/srv/braincron/current/public"
+  docroot "#{app_root}/braincron/current/public"
   server_name "braincron.#{node[:domain]}"
   server_aliases [ "braincron", node[:hostname] ]
   rails_env "production"

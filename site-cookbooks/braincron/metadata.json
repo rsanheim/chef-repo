@@ -13,6 +13,9 @@
   },
   "description": "Installs/Configures braincron",
   "providing": {
+    "braincron::deploy": [
+
+    ],
     "braincron": [
 
     ]
@@ -28,6 +31,7 @@
   },
   "maintainer": "Relevance",
   "recipes": {
+    "braincron::deploy": "",
     "braincron": ""
   },
   "recommendations": {
