@@ -1,6 +1,7 @@
+include_recipe "rails"
 include_recipe "apache2"
 include_recipe "passenger_apache2"
-include_recipe "rails"
+include_recipe "passenger_apache2::mod_rails"
 
 app_root = node[:app_root]
 
