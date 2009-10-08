@@ -8,7 +8,7 @@
   "description": "",
   "recipes": [
     "passenger_apache2",
-    "brainjo"
+    "braincron"
   ],
   "override_attributes": {
     "passenger": {
