@@ -1,8 +1,3 @@
-include_recipe "rails"
-include_recipe "apache2"
-include_recipe "passenger_apache2"
-include_recipe "passenger_apache2::mod_rails"
-
 app_root = node[:app_root]
 
 directory app_root do
@@ -30,6 +25,11 @@ node[:apps].each do |app|
   end
 
 end
+
+include_recipe "rails"
+include_recipe "apache2"
+include_recipe "passenger_apache2"
+include_recipe "passenger_apache2::mod_rails"
 
 web_app "braincron" do
   docroot "#{app_root}/braincron/current/public"
