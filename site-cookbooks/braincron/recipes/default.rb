@@ -1,4 +1,6 @@
-directory "#{app_root}" do
+app_root = node[:app_root]
+
+directory app_root do
   owner node[:user]
   mode 0755
 end
