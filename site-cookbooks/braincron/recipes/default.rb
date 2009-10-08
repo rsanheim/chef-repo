@@ -1,3 +1,6 @@
+include_recipe "rails"
+include_recipe "passenger"
+
 app_root = node[:app_root]
 
 directory app_root do
