@@ -1,6 +1,10 @@
 app_root = node[:app_root]
 app = "braincron"
 
+user "deploy" do
+  home "/home/deploy"
+end
+
 directory app_root do
   owner node[:user]
   mode 0755
@@ -17,7 +21,7 @@ cap_directories = [
 
 cap_directories.each do |dir|
   directory dir do
-    owner node[:user]
+    owner "deploy"
     mode 0755
     recursive true
   end
