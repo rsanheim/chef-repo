@@ -22,5 +22,15 @@ deploy "#{node[:app_root]}/#{node[:app_name]}" do
   environment "RAILS_ENV" => "production"
   shallow_clone true
   restart_command "touch tmp/restart.txt"
+  
+  before_migrate do
+    current_release = release_path
+
+    execute "create db" do
+      cwd current_release
+      user "postgres"
+      command "rake db:create"
+    end
+  end
   action :deploy # or :rollback
 end
