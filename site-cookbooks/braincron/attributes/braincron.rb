@@ -1,1 +1,2 @@
-gems = %[sqlite3-ruby]
+set_unless[:gems] = []
+gems << %[sqlite3-ruby] 
