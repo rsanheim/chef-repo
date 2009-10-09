@@ -41,7 +41,7 @@ include_recipe "apache2"
 include_recipe "passenger_apache2"
 include_recipe "passenger_apache2::mod_rails"
 
-apache_site do
+apache_site "000-default" do
   enable false
 end
 
