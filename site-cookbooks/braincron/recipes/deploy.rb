@@ -24,10 +24,8 @@ deploy "#{node[:app_root]}/#{node[:app_name]}" do
   restart_command "touch tmp/restart.txt"
   symlink_before_migrate  "config/database.yml" => "config/database.yml"
   before_migrate do
-    current_release = release_path
-
     execute "create db" do
-      cwd current_release
+      cwd "#{node[:app_root]}/#{node[:app_name]}/current"
       user "postgres"
       command "rake db:create"
     end
