@@ -1,10 +1,5 @@
 include_recipe "sqlite"
-
-node[:gems].each do |gem|
-  gem_package gem do
-    action :install
-  end
-end
+gem_package "sqlite3-ruby"
 
 template "#{node[:app_root]}/#{node[:app_name]}/shared/config/database.yml" do
   source "database.yml.erb"
