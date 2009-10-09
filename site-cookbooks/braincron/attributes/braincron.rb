@@ -1,0 +1,1 @@
+gems = %[sqlite3-ruby]

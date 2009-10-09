@@ -1,7 +1,4 @@
 {
-  "suggestions": {
-
-  },
   "dependencies": {
     "runit": [
 
@@ -10,13 +7,23 @@
 
     ]
   },
+  "maintainer": "Relevance",
+  "recommendations": {
+
+  },
   "platforms": {
 
   },
+  "maintainer_email": "rob@thinkrelevance.com",
+  "description": "Installs/Configures git",
+  "suggestions": {
+
+  },
+  "name": "git",
   "conflicting": {
 
   },
-  "description": "Installs/Configures git",
+  "version": "0.1.0",
   "providing": {
     "git::server": [
 
@@ -26,22 +33,15 @@
     ]
   },
   "long_description": "= DESCRIPTION: Install git (any nothing else - no gitk, etc.)\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\n= USAGE:\n\n",
-  "name": "git",
-  "replacing": {
-
-  },
-  "version": "0.1.0",
-  "attributes": {
-
-  },
-  "maintainer": "Relevance",
   "recipes": {
     "git": "",
     "git::server": "Sets up a runit_service for git daemon"
   },
-  "recommendations": {
+  "attributes": {
 
   },
-  "license": "Apache 2.0",
-  "maintainer_email": "rob@thinkrelevance.com"
+  "replacing": {
+
+  },
+  "license": "Apache 2.0"
 }

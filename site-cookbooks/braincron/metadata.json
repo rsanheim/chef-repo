@@ -1,17 +1,24 @@
 {
-  "suggestions": {
+  "dependencies": {
 
   },
-  "dependencies": {
+  "maintainer": "Relevance",
+  "recommendations": {
 
   },
   "platforms": {
 
   },
+  "maintainer_email": "rob@thinkrelevance.com",
+  "description": "Installs/Configures braincron",
+  "suggestions": {
+
+  },
+  "name": "braincron",
   "conflicting": {
 
   },
-  "description": "Installs/Configures braincron",
+  "version": "0.1.0",
   "providing": {
     "braincron::deploy": [
 
@@ -21,22 +28,15 @@
     ]
   },
   "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\n= USAGE:\n\n",
-  "name": "braincron",
-  "replacing": {
-
-  },
-  "version": "0.1.0",
-  "attributes": {
-
-  },
-  "maintainer": "Relevance",
   "recipes": {
     "braincron::deploy": "",
     "braincron": ""
   },
-  "recommendations": {
+  "attributes": {
 
   },
-  "license": "Apache 2.0",
-  "maintainer_email": "rob@thinkrelevance.com"
+  "replacing": {
+
+  },
+  "license": "Apache 2.0"
 }
