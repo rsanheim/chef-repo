@@ -32,6 +32,7 @@ cap_directories = [
 cap_directories.each do |dir|
   directory dir do
     owner "deploy"
+    group "deploy"
     mode 0755
     recursive true
   end
