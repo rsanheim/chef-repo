@@ -15,6 +15,7 @@ end
 execute "create db" do
   user "postgres"
   command "createdb braincron_production"
+  ignore_failure true
 end
 
 deploy "#{node[:app_root]}/#{node[:app_name]}" do
