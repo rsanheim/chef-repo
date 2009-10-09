@@ -12,6 +12,11 @@ template "#{node[:app_root]}/#{node[:app_name]}/shared/config/database.yml" do
   mode "0664"
 end
 
+execute "create db" do
+  user "postgres"
+  command "createdb braincron_production"
+end
+
 deploy "#{node[:app_root]}/#{node[:app_name]}" do
   repo "git://github.com/rsanheim/braincron.git"
   revision "HEAD" # or "HEAD" or "TAG_for_1.0" or (subversion) "1234"
@@ -23,12 +28,5 @@ deploy "#{node[:app_root]}/#{node[:app_name]}" do
   shallow_clone true
   restart_command "touch tmp/restart.txt"
   symlink_before_migrate  "config/database.yml" => "config/database.yml"
-  before_migrate do
-    execute "create db" do
-      cwd "#{node[:app_root]}/#{node[:app_name]}/current"
-      user "postgres"
-      command "rake db:create"
-    end
-  end
   action :deploy # or :rollback
 end
