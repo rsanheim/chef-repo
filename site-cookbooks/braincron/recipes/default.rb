@@ -25,8 +25,6 @@ cap_directories = [
   "#{app_root}/#{app}/shared/config",
   "#{app_root}/#{app}/shared/system",
   "#{app_root}/#{app}/releases",
-  "#{app_root}/#{app}/current",
-  "#{app_root}/#{app}/current/public" 
 ]
 
 cap_directories.each do |dir|
