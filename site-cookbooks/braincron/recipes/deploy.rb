@@ -1,7 +1,7 @@
 require 'chef-deploy'
 
-deploy "#{app_root}/myrackapp" do
-   repo "git://github.com/engineyard/rack-app.git"
+deploy "#{app_root}/braincron" do
+   repo "git://github.com/rsanheim/braincron.git"
    branch "HEAD"
    user "deploy"
    role "web"
