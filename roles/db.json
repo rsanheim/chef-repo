@@ -1,0 +1,15 @@
+{
+  "name": "db",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "description": "Database role for braincron",
+  "recipes": [
+    "postgresql::server"
+  ],
+  "override_attributes": {
+
+  }
+}
