@@ -1,4 +1,4 @@
-require 'chef-deploy'
+require File.join(File.dirname(__FILE__), *%w[.. .. .. vendor chef-deploy lib chef-deploy])
 
 deploy "#{app_root}/braincron" do
    repo "git://github.com/rsanheim/braincron.git"
