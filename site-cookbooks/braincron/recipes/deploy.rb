@@ -1,5 +1,8 @@
 include_recipe "sqlite"
 gem_package "sqlite3-ruby"
+gem_package "antage-postgres" do
+  source "http://gems.github.com"
+end
 
 template "#{node[:app_root]}/#{node[:app_name]}/shared/config/database.yml" do
   source "database.yml.erb"
