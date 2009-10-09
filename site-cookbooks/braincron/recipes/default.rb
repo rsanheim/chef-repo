@@ -5,6 +5,16 @@ user "deploy" do
   home "/home/deploy"
 end
 
+execute "create postgres user 'deploy'" do
+  command "createuser deploy --createdb --superuser"
+  user "postgres"
+  only_if do
+    # Only setup the user if there is not one already in postgres
+    result = %x[sudo -u postgres /usr/bin/psql -c "select * from pg_user where usename = 'deploy'"]
+    result =~ /0 row/
+  end
+end
+
 directory app_root do
   owner node[:user]
   mode 0755

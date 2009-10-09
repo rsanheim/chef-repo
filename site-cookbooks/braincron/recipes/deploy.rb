@@ -24,7 +24,7 @@ deploy "#{node[:app_root]}/#{node[:app_name]}" do
   user "deploy"
   enable_submodules true
   migrate true
-  migration_command "su postgres rake db:migrate"
+  migration_command "rake db:migrate"
   environment "RAILS_ENV" => "production"
   shallow_clone true
   restart_command "touch tmp/restart.txt"
