@@ -31,6 +31,10 @@ include_recipe "apache2"
 include_recipe "passenger_apache2"
 include_recipe "passenger_apache2::mod_rails"
 
+apache_site do
+  enable false
+end
+
 web_app "braincron" do
   docroot "#{app_root}/braincron/current/public"
   server_name "braincron.#{node[:domain]}"
