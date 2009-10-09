@@ -1,29 +1,26 @@
 app_root = node[:app_root]
+app = "braincron"
 
 directory app_root do
   owner node[:user]
   mode 0755
 end
 
-node[:apps].each do |app|
+cap_directories = [
+  "#{app_root}/#{app}/shared",
+  "#{app_root}/#{app}/shared/config",
+  "#{app_root}/#{app}/shared/system",
+  "#{app_root}/#{app}/releases",
+  "#{app_root}/#{app}/current",
+  "#{app_root}/#{app}/current/public" 
+]
 
-  cap_directories = [
-    "#{app_root}/#{app}/shared",
-    "#{app_root}/#{app}/shared/config",
-    "#{app_root}/#{app}/shared/system",
-    "#{app_root}/#{app}/releases",
-    "#{app_root}/#{app}/current",
-    "#{app_root}/#{app}/current/public" 
-  ]
-
-  cap_directories.each do |dir|
-    directory dir do
-      owner node[:user]
-      mode 0755
-      recursive true
-    end
+cap_directories.each do |dir|
+  directory dir do
+    owner node[:user]
+    mode 0755
+    recursive true
   end
-
 end
 
 include_recipe "rails"
