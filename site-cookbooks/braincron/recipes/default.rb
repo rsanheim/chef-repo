@@ -16,15 +16,15 @@ execute "create postgres user 'deploy'" do
 end
 
 directory app_root do
-  owner "deploy"
-  group "deploy"
   mode 0755
 end
 
 cap_directories = [
+  "#{app_root}/#{app}",
   "#{app_root}/#{app}/shared",
   "#{app_root}/#{app}/shared/config",
   "#{app_root}/#{app}/shared/system",
+  "#{app_root}/#{app}/shared/log",
   "#{app_root}/#{app}/releases"
 ]
 
