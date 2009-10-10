@@ -56,3 +56,7 @@ web_app "braincron" do
   rails_env "production"
   template "braincron.conf.erb"
 end
+
+service "apache2" do
+  action :restart
+end
