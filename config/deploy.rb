@@ -6,7 +6,7 @@ set :deploy_via, :remote_cache
 set :normalize_asset_timestamps, false
 ssh_options[:keys] = [File.join(ENV["HOME"], ".sumo", "keypair.pem")] 
 
-instance = "ec2-75-101-246-135.compute-1.amazonaws.com"
+instance = "ec2-174-129-99-116.compute-1.amazonaws.com"
 role :web, instance
 role :app, instance
 
