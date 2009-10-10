@@ -21,11 +21,10 @@ template "#{node[:app_root]}/#{node[:app_name]}/shared/config/smtp.yml" do
 end
 
 execute "create db" do
-  user "postgres"
   command "createdb braincron_production"
-  ignore_failure true
+  user "postgres"
   only_if do
-    result = %[/usr/bin/psql -U postgres -c "select * from pg_catalog.pg_database where datname = 'braincron_production'"]
+    result = %x[sudo -u postgres /usr/bin/psql -c "select * from pg_catalog.pg_database where datname = 'braincron_production'"]
     result =~ /0 row/
   end
 end
