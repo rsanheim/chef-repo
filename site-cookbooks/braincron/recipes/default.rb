@@ -13,7 +13,7 @@ execute "create postgres user 'deploy'" do
   user "postgres"
   only_if do
     # Only setup the user if there is not one already in postgres
-    result = %x[/usr/bin/psql -U postgres -c "select * from pg_user where usename = 'deploy'"]
+    result = %x[sudo -u postgres /usr/bin/psql -c "select * from pg_user where usename = 'deploy'"]
     result =~ /0 row/
   end
 end
