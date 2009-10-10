@@ -16,6 +16,10 @@ execute "create db" do
   user "postgres"
   command "createdb braincron_production"
   ignore_failure true
+  only_if do
+    result = %[/usr/bin/psql -U postgres -c "select * from pg_catalog.pg_database where datname = 'braincron_production'"]
+    result =~ /0 row/
+  end
 end
 
 deploy "#{node[:app_root]}/#{node[:app_name]}" do
