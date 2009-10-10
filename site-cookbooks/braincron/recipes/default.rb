@@ -6,6 +6,7 @@ package "sendmail"
 
 user "deploy" do
   home "/home/deploy"
+  shell "/bin/bash"
 end
 
 execute "create postgres user 'deploy'" do
