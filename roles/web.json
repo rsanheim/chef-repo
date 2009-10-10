@@ -9,7 +9,7 @@
   "recipes": [
     "braincron",
     "braincron::deploy",
-    "braincron:cron"
+    "braincron::cron"
   ],
   "override_attributes": {
     "passenger": {
