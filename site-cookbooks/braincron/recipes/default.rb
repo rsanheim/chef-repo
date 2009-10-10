@@ -2,6 +2,7 @@ app_root = node[:app_root]
 app = "braincron"
 
 package "vim"
+package "sendmail"
 
 user "deploy" do
   home "/home/deploy"
@@ -39,7 +40,6 @@ cap_directories.each do |dir|
   end
 end
 
-include_recipe "postfix"
 include_recipe "rails"
 include_recipe "apache2"
 include_recipe "passenger_apache2"
