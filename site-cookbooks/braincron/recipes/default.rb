@@ -1,6 +1,8 @@
 app_root = node[:app_root]
 app = "braincron"
 
+package "vim"
+
 user "deploy" do
   home "/home/deploy"
 end
