@@ -21,21 +21,21 @@ directory app_root do
   mode 0755
 end
 
-# cap_directories = [
-#   "#{app_root}/#{app}/shared",
-#   "#{app_root}/#{app}/shared/config",
-#   "#{app_root}/#{app}/shared/system",
-#   "#{app_root}/#{app}/releases",
-# ]
-# 
-# cap_directories.each do |dir|
-#   directory dir do
-#     owner "deploy"
-#     group "deploy"
-#     mode 0755
-#     recursive true
-#   end
-# end
+cap_directories = [
+  "#{app_root}/#{app}/shared",
+  "#{app_root}/#{app}/shared/config",
+  "#{app_root}/#{app}/shared/system",
+  "#{app_root}/#{app}/releases",
+]
+
+cap_directories.each do |dir|
+  directory dir do
+    owner "deploy"
+    group "deploy"
+    mode 0755
+    recursive true
+  end
+end
 
 include_recipe "rails"
 include_recipe "apache2"
